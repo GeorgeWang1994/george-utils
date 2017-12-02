@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-from GRedis import __version__ as version
+from utils import __version__ as version
 
 setup(
     name="george-utils",

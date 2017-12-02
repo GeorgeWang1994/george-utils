@@ -11,8 +11,6 @@ import os
 from django.http import HttpResponse
 from django.test import TestCase
 
-from minialgorithm.settings import BASE_DIR
-
 
 def find_files_recursively(root_path, filename='*', prefix='', suffix='.py', exclude_name=()):
     """
@@ -34,12 +32,12 @@ def find_files_recursively(root_path, filename='*', prefix='', suffix='.py', exc
     return matches
 
 
-def add_app_testcase(app_name):
+def add_app_testcase(base_dir, app_name):
     """
     获取当前app下testing文件夹中的所有测试用例
     :return:
     """
-    app_dir = os.path.join(BASE_DIR, app_name)
+    app_dir = os.path.join(base_dir, app_name)
     if not os.path.exists(app_dir):
         print u'不存在app{0}的路径'.format(app_name)
         return
